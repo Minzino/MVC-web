@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -33,6 +34,22 @@ public class BasicItemController {
         model.addAttribute("item",item);
         return "basic/item";
     }
+
+    /**
+     * http Method로 기능을 구분
+     * 같은 url이 오더라도 get요청이면 addForm으로 post요청이면 save 호출
+      */
+    @GetMapping("/add")
+    public String addForm(){
+        return "basic/addForm";
+    }
+
+    @PostMapping("/add")
+    public String save(){
+
+        return "basic/addForm";
+    }
+
 
 
     /**
